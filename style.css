@@ -62,30 +62,4 @@ form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
-}
-
-fieldset {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border: 0px;
-    width: 100%;
-    height: fit-content;
-}
-
-
-#entrandoTexto > label {
-    padding: 5px;
-}
-
-#texto {
-    width: 100%;
-    padding: 5px;
-}
-
-
-#escolhendoCrip {
-    align-items: flex-start;
 }

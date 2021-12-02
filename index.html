@@ -13,7 +13,35 @@
             <p>executaEncriptador.bash</p>
         </span>
 
-        <div id="terminal">
+        <form id="terminal">
+            <div class="cabecarioTerminal"></div>
+
+            <!-- texto a ser cripto -->
+            <label for="texto">
+                Digite o que deseja criptografar:
+                <input type="textarea" name="texto" id="texto">
+            </label>
+
+            <!-- tipo de criptografia -->
+            <label for="cifraDeCesar">
+                <input type="radio" name="cifraDeCesarOuB64" id="cifraDeCesar" value="cifra">Cifra de Cesar
+            </label>
+            
+            <label for="base64">
+                <input type="radio" name="cifraDeCesarOuB64" id="base64" value="base64">Base64
+            </label>
+
+            <!-- criptografar ou descriptografar -->
+            <label for="codificar">
+                <input type="radio" name="codDecod" id="codificar" value="cod">Codificar
+            </label>
+
+            <label for="decodificar">
+                <input type="radio" name="codDecod" id="decodificar" value="decod">Decodificar
+            </label>
+        </form>
+
+        <!-- <div id="terminal">
             <div class="cabecarioTerminal"></div>
             <form>
                 <fieldset id="entrandoTexto">
@@ -28,20 +56,23 @@
                     </span>
                     <span>
                         <input type="radio" name="cifraDeCesarOuB64" id="base64" value="base64">
-                        <label for="base64">Base64</label><br/>
+                        <label for="base64">Base64</label>
                     </span>
                 </fieldset>
                 <fieldset id="escolhendoCodDecod">
                     <p>Escolha a ação:</p>
-
-                    <input type="radio" name="codDecod" id="codificar" value="cod">
-                    <label for="codificar">Codificar</label><br/>
+                    <span>
+                        <input type="radio" name="codDecod" id="codificar" value="cod">
+                        <label for="codificar">Codificar</label>
+                    </span>
                     
-                    <input type="radio" name="codDecod" id="decodificar" value="decod">
-                    <label for="decodificar">Decodificar</label><br/>
+                    <span>
+                        <input type="radio" name="codDecod" id="decodificar" value="decod">
+                        <label for="decodificar">Decodificar</label>
+                    </span>
                 </fieldset>
             </form>
-        </div>
+        </div> -->
         <script src="./script.js"></script>
     </body>
 </html>
