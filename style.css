@@ -47,19 +47,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: tomato;
+    background-color: rgba(40, 40, 40, 50%);
     border-radius: 5px;
 }
 
 .cabecarioTerminal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
-    height: 35px;
-    background-color: cornflowerblue;
+    height: fit-content;
+    background-color: rgb(25, 25, 25);
     border-radius: 5px 5px 0px 0px;
+}
+
+.cabecarioTerminal > h2 {
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 16px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 100%;
+    color: #FFFFFF;
+    font-family: Dogica;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    padding: 10px;
+}
+
+label {
+    padding: 5px;
+}
+
+label > input {
+    margin: 5px;
+}
+
+#texto {
+    border: 0px;
+    width: 100%;
+    padding: 5px;
+
 }

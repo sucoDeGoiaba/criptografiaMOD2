@@ -14,7 +14,7 @@
         </span>
 
         <form id="terminal">
-            <div class="cabecarioTerminal"></div>
+            <div class="cabecarioTerminal"><h2>Enco. & Decoder</h2></div>
 
             <!-- texto a ser cripto -->
             <label for="texto">
@@ -23,22 +23,28 @@
             </label>
 
             <!-- tipo de criptografia -->
-            <label for="cifraDeCesar">
-                <input type="radio" name="cifraDeCesarOuB64" id="cifraDeCesar" value="cifra">Cifra de Cesar
-            </label>
-            
-            <label for="base64">
-                <input type="radio" name="cifraDeCesarOuB64" id="base64" value="base64">Base64
-            </label>
+            <fieldset class="tipoDeCripto">
+                <p>Escolha a criptografia:</p>
+                <label for="cifraDeCesar">
+                    <input type="radio" name="cifraDeCesarOuB64" id="cifraDeCesar" value="cifra">Cifra de Cesar
+                </label>
+                
+                <label for="base64">
+                    <input type="radio" name="cifraDeCesarOuB64" id="base64" value="base64">Base64
+                </label>
+            </fieldset>
 
             <!-- criptografar ou descriptografar -->
-            <label for="codificar">
-                <input type="radio" name="codDecod" id="codificar" value="cod">Codificar
-            </label>
-
-            <label for="decodificar">
-                <input type="radio" name="codDecod" id="decodificar" value="decod">Decodificar
-            </label>
+            <fieldset class="codOuDecod">
+                <p>Ação:</p>
+                <label for="codificar">
+                    <input type="radio" name="codDecod" id="codificar" value="cod">Codificar
+                </label>
+    
+                <label for="decodificar">
+                    <input type="radio" name="codDecod" id="decodificar" value="decod">Decodificar
+                </label>
+            </fieldset>
         </form>
 
         <!-- <div id="terminal">
