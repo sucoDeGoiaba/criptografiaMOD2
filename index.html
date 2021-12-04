@@ -8,44 +8,7 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <span id="icone">
-            <img src="./assets/fileExecute.png" alt="Executando o codificador">
-            <p>executaEncriptador.bash</p>
-        </span>
 
-        <form id="terminal">
-            <div class="cabecarioTerminal"><h2>Enco. & Decoder</h2></div>
-
-            <!-- texto a ser cripto -->
-            <label for="texto">
-                Digite o que deseja criptografar:
-                <input type="text" name="texto" id="texto">
-            </label>
-
-            <!-- tipo de criptografia -->
-            <fieldset class="tipoDeCripto">
-                <p>Escolha a criptografia:</p>
-                <label for="cifraDeCesar">
-                    <input type="radio" name="cifraDeCesarOuB64" id="cifraDeCesar" value="cifra">Cifra de Cesar
-                </label>
-                
-                <label for="base64">
-                    <input type="radio" name="cifraDeCesarOuB64" id="base64" value="base64">Base64
-                </label>
-            </fieldset>
-
-            <!-- criptografar ou descriptografar -->
-            <fieldset class="codOuDecod">
-                <p>Ação:</p>
-                <label for="codificar">
-                    <input type="radio" name="codDecod" id="codificar" value="cod">Codificar
-                </label>
-    
-                <label for="decodificar">
-                    <input type="radio" name="codDecod" id="decodificar" value="decod">Decodificar
-                </label>
-            </fieldset>
-        </form>
         <script src="./script.js"></script>
     </body>
 </html>
