@@ -1,29 +1,33 @@
-// var texto = document.querySelectorAll("#texto");
+// const cripto = document.
+// let escolhaCripto = cripto.addEventListener("click", function(){
+//     for(var i = 0; i< cripto.length; i++){
+//         if(cripto[i].checked){
+//             // retorna o valor do item marcado
+//             return cripto[i].value;
+//         }
+//     }
+//     console.log(escolhaCripto);
+// });
 
+// Cifra
 
-const cripto = document.querySelector(".tipoDeCripto");
+const listaDeCaracteresIgnorados = []
 
-cripto.addEventListener("click", function(){
-    let criptoEscolhida;
-    const escolhendoCripto = document.getElementsByName("cifraDeCesarOuB64");
-    for(var i = 0; i < escolhendoCripto.length; i++){
-        if(escolhendoCripto[i].checked){
-            criptoEscolhida = escolhendoCripto[i].value;
-        }
+var string = "textougaBuga";
+var stringConvertida;
+var numeroIncrementos = 5
+for(var i = 0; i < string.length; i++){
+    if(stringConvertida === undefined){
+        var iniciaEm = string[i].charCodeAt();
+        var terminaEm = iniciaEm + numeroIncrementos;
+        stringConvertida = String.fromCharCode(terminaEm)
+    } else if(){
+        continue;
     }
+    var iniciaEm = string[i].charCodeAt();
+    var terminaEm = iniciaEm + numeroIncrementos;
+    stringConvertida += String.fromCharCode(terminaEm)
+};
 
-    while(true){
 
-        if(criptoEscolhida === "cifra"){
-            let decidindoIncrementos = document.createElement("div")
-            decidindoIncrementos.innerHTML = `
-            <label for="incrementos">
-                Digite o numero de incrementos na criptografia:
-                <input type="number" name="incrementos" id="incrementos">
-            </label>
-            `;
-            cripto.append(decidindoIncrementos);
-    }
-
-    } 
-});
+console.log(stringConvertida);
