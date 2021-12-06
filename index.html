@@ -8,7 +8,34 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-
+        <form>
+            <label for="texto">
+                Digite o texto que deseja criptografar: 
+                <input type="text" name="texto" id="texto">
+            </label>
+            <fieldset id="containerEscolhaDeCripto">
+                <p>Diga o tipo de criptografia escolhida:</p>
+                <label for="crifaDeCesar">
+                    <input type="radio" name="crifaDeCesarOuB64" id="crifaDeCesar" value="cifra">Cifra de Cesar
+                </label>
+                <label for="base64">
+                    <input type="radio" name="crifaDeCesarOuB64" id="base64" value="base64">Base64
+                </label>
+                <label for="valorIncrementos">
+                    Digite o numero de incrementos:
+                    <input type="number" name="valorIncrementos" id="valorIncrementos">
+                </label>
+            </fieldset>
+            <fieldset>
+                <p>Diga a ação desejada:</p>
+                <label for="criptografar">
+                    <input type="radio" name="cripOuDescrip" id="criptografar">Criptografar
+                </label>
+                <label for="descriptografar">
+                    <input type="radio" name="cripOuDescrip" id="descriptografar">Descriptografar
+                </label>
+            </fieldset>
+        </form>
         <script src="./script.js"></script>
     </body>
 </html>
