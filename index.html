@@ -15,18 +15,22 @@
             </label>
             <fieldset id="containerEscolhaDeCripto">
                 <p>Diga o tipo de criptografia escolhida:</p>
+                <!-- cifra de cesar -->
                 <label for="crifaDeCesar">
                     <input type="radio" name="crifaDeCesarOuB64" id="crifaDeCesar" value="cifra">Cifra de Cesar
                 </label>
+                <!-- base 64 -->
                 <label for="base64">
                     <input type="radio" name="crifaDeCesarOuB64" id="base64" value="base64">Base64
                 </label>
-                <label for="valorIncrementos">
+                <!-- valor do incremento -->
+                <!-- falta pegar -->
+                <label class="containerIncrementos" for="valorIncrementos">
                     Digite o numero de incrementos:
                     <input type="number" name="valorIncrementos" id="valorIncrementos">
                 </label>
             </fieldset>
-            <fieldset>
+            <fieldset id="containerAcao">
                 <p>Diga a ação desejada:</p>
                 <label for="criptografar">
                     <input type="radio" name="cripOuDescrip" id="criptografar">Criptografar
@@ -35,6 +39,7 @@
                     <input type="radio" name="cripOuDescrip" id="descriptografar">Descriptografar
                 </label>
             </fieldset>
+            <button id="botaoAcao"></button>
         </form>
         <script src="./script.js"></script>
     </body>
