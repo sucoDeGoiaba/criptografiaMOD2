@@ -76,7 +76,9 @@ let opcoesForm = {
     acaoEscolhida : "",
     setAcaoEscolhida : function(escolha){
         this.acaoEscolhida = escolha;
-    }
+    },
+    texto : "",
+
 }
 
 
@@ -115,13 +117,18 @@ acaoCriptografando.addEventListener("click", function(){
         opcoesForm.setAcaoEscolhida("criptografar");
         // console.log(opcoesForm.acaoEscolhida);
     }
+
+    const botaoAcao = document.querySelector("#botaoAcao");
+    botaoAcao.innerText = "Criptografar";
 });
+
 
 const acaoDescriptografando = document.querySelector("#descriptografar");
 acaoDescriptografando.addEventListener("click", function(){
     if(acaoDescriptografando.checked === true){
         opcoesForm.setAcaoEscolhida("descriptografar");
-        // console.log(opcoesForm.acaoEscolhida);
     }
-});
 
+    const botaoAcao = document.querySelector("#botaoAcao");
+    botaoAcao.innerText = "Descriptografar";
+});
