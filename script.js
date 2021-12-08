@@ -27,108 +27,114 @@ function criptografandoCifraDeCesar(texto, passos){
     }
     return textoCriptografado;
 }
-// console.log(criptografandoCifraDeCesar("Ugabuga/12Texto", 5));
 
 
-// function pegandoTexto(){
-//     var selecionandoTexto = document.querySelector("#texto");
-//     return selecionandoTexto.innerText;
-// }
+// Pega, edita e salva as escolhas do usuário.
+let opcoesForm = {
+    // Escolha da criptografia
+    criptoEscolhida : "",
+    getCriptoEscolhida: function(){
+        return this.criptoEscolhida;
+    },
+    setCriptoEscolhida : function(escolha){
+        this.criptoEscolhida = escolha;
+    },
+    
+    //O que será feito
+    acaoEscolhida : "",
+    getAcaoEscolhida: function(){
+        return this.acaoEscolhida;
+    },
+    setAcaoEscolhida : function(escolha){
+        this.acaoEscolhida = escolha;
+    },
+}
 
-// var escolhendoCifra = document.querySelector("#crifaDeCesar");
-// escolhendoCifra.addEventListener("click", function(){
-//     if(escolhendoCifra.checked === true){
-//         // Checar se há a "aba" de incrementos
-//         // Faltar arrumar isso
-//         escolhendoIncrementos = document.createElement("label");
-//         escolhendoIncrementos.id = "valorIncrementos";
-//         const containerEscolhaDeCripto = document.querySelector("#containerEscolhaDeCripto");
-//         containerEscolhaDeCripto.append(escolhendoIncrementos);
+// Vê se o usuário escolheu cifra
+const escolhendoCifra = document.querySelector("#crifaDeCesar");
+escolhendoCifra.addEventListener("click", function(){
+    if(escolhendoCifra.checked === true){
+        // Se o usuário escolhe cifra irá aparecer uma obção de incrementos
+        const containerIncrementos = document.querySelector(".containerIncrementos");
+        if(containerIncrementos.style.display === "none"){
+            containerIncrementos.style.display = "flex";
+        }
         
-//         escolhendoIncrementos.innerHTML = `
-//         Digite o numero de incrementos:
-//         <input type="number" name="valorIncrementos" id="valorIncrementos">
-//         `;
-//     }
-// });
+        // Salva essa escolha no objeto opcoesForm
+        opcoesForm.setCriptoEscolhida("cifra");
+    }
+});
+
+// Vê se o usuário escolheu base64
+const escolhendoBase64 = document.querySelector("#base64");
+escolhendoBase64.addEventListener("click", function(){
+    if(escolhendoBase64.checked === true){
+        // Escolhendo B64 não precisa de incrementos, logo, os faz sumir.
+        const containerIncrementos = document.querySelector(".containerIncrementos");
+        if(containerIncrementos.style.display !== "none"){
+            containerIncrementos.style.display = "none";
+        }
+
+        // Salva essa escolha no objeto opcoesForm
+        opcoesForm.setCriptoEscolhida("base64");
+    }
+});
+
+// Vê se o usuário escolheu criptografar
+const acaoCriptografando = document.querySelector("#criptografar");
+acaoCriptografando.addEventListener("click", function(){
+    if(acaoCriptografando.checked === true){
+        // Salva escolha no opcoesForm
+        opcoesForm.setAcaoEscolhida("criptografar");
+    }
+    // Edita o texto interno do botão
+    const botaoAcao = document.querySelector("#botaoAcao");
+    botaoAcao.innerText = "Criptografar";
+});
+
+// Vê se o usuário escolheu descriptografar
+const acaoDescriptografando = document.querySelector("#descriptografar");
+acaoDescriptografando.addEventListener("click", function(){
+    if(acaoDescriptografando.checked === true){
+         // Salva escolha no opcoesForm
+        opcoesForm.setAcaoEscolhida("descriptografar");
+    }
+
+    // Edita o texto interno do botão
+    const botaoAcao = document.querySelector("#botaoAcao");
+    botaoAcao.innerText = "Descriptografar";
+});
+
+// Daqui pra cima "OK"
+let manipulandoTexto = {
+    pegandoTexto : function(){
+        texto = document.querySelector("#texto");
+        return texto.innerText;
+    },
+    
+    textoCriptografado : "",
+    setTextoCriptografado : function(texto){
+        this.textoCriptografado = texto;
+    }
+}
+
+const confirmacaoAcao = document.querySelector("#botaoAcao");
+confirmacaoAcao.addEventListener("click", function(e){
+    e.preventDefault()
+    // console.log("uga");
+    if(opcoesForm.getAcaoEscolhida() === "criptografar"){
+        if(opcoesForm.getCriptoEscolhida() === "cifra"){
+            // irá chamar a função criptografandoCifraDeCesar(texto, passos)
+            
+        }
+    }
+});
+
+
+
+
 
 // function criptografandoBase64(texto){
 //     // btoa() codfi
 //     // atob() decodfi
 // }
-
-
-// // var uga = {
-// //     pegandoTexto : function(){
-// //         var selecionandoTexto = document.querySelector("#texto");
-// //         return selecionandoTexto.innerText;
-// //     },
-// //     escolhendoCripto : function(){
-
-// //     }
-// // }
-
-let opcoesForm = {
-    criptoEscolhida : "",
-    setCriptoEscolhida : function(escolha){
-        this.criptoEscolhida = escolha;
-    },
-    acaoEscolhida : "",
-    setAcaoEscolhida : function(escolha){
-        this.acaoEscolhida = escolha;
-    },
-    texto : "",
-
-}
-
-
-
-const escolhendoCifra = document.querySelector("#crifaDeCesar");
-escolhendoCifra.addEventListener("click", function(){
-    if(escolhendoCifra.checked === true){
-
-        const containerIncrementos = document.querySelector(".containerIncrementos");
-        if(containerIncrementos.style.display === "none"){
-            containerIncrementos.style.display = "flex";
-        }
-
-        opcoesForm.setCriptoEscolhida("cifra");
-        // console.log(opcoesForm.criptoEscolhida);
-    }
-});
-
-const escolhendoBase64 = document.querySelector("#base64");
-escolhendoBase64.addEventListener("click", function(){
-    // Faz sumir com a escolha de incrementos
-    const containerIncrementos = document.querySelector(".containerIncrementos");
-    if(containerIncrementos.style.display !== "none"){
-        containerIncrementos.style.display = "none";
-    }
-
-    if(escolhendoBase64.checked === true){
-        opcoesForm.setCriptoEscolhida("base64");
-        // console.log(opcoesForm.criptoEscolhida);
-    }
-});
-
-const acaoCriptografando = document.querySelector("#criptografar");
-acaoCriptografando.addEventListener("click", function(){
-    if(acaoCriptografando.checked === true){
-        opcoesForm.setAcaoEscolhida("criptografar");
-        // console.log(opcoesForm.acaoEscolhida);
-    }
-
-    const botaoAcao = document.querySelector("#botaoAcao");
-    botaoAcao.innerText = "Criptografar";
-});
-
-
-const acaoDescriptografando = document.querySelector("#descriptografar");
-acaoDescriptografando.addEventListener("click", function(){
-    if(acaoDescriptografando.checked === true){
-        opcoesForm.setAcaoEscolhida("descriptografar");
-    }
-
-    const botaoAcao = document.querySelector("#botaoAcao");
-    botaoAcao.innerText = "Descriptografar";
-});
