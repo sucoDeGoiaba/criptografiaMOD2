@@ -1,6 +1,6 @@
 function criptografandoCifraDeCesar(texto, passos){
-    var textoCriptografado; 
-    for(var i = 0; i < texto.length; i++){
+    let textoCriptografado; 
+    for(let i = 0; i < texto.length; i++){
         // checa se é uma letra pelo charCode
         if((texto[i].charCodeAt() >= 65 && texto[i].charCodeAt() <= 90) || (texto[i].charCodeAt() >= 97 && texto[i].charCodeAt() <= 122)){            
             if(texto[i].charCodeAt() >= 97){
@@ -34,7 +34,7 @@ function criptografandoBase64(texto){
 }
 
 function descriptografandoCifraDeCesar(texto, passos){
-    var textoDescriptografado; 
+    let textoDescriptografado; 
     for(var i = 0; i < texto.length; i++){
         // checa se é uma letra pelo charCode
         if((texto[i].charCodeAt() >= 65 && texto[i].charCodeAt() <= 90) || (texto[i].charCodeAt() >= 97 && texto[i].charCodeAt() <= 122)){            
