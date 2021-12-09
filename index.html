@@ -9,11 +9,11 @@
     </head>
     <body>
         <form>
-            <label for="texto">
-                Digite o texto que deseja criptografar: 
+            <label class="containerAddTexto" for="texto">
+                <p>Digite o texto que deseja criptografar:</p> 
                 <input type="text" name="texto" id="texto">
             </label>
-            <fieldset id="containerEscolhaDeCripto">
+            <fieldset class="containersDeEscolha" id="containerEscolhaDeCripto">
                 <p>Diga o tipo de criptografia escolhida:</p>
                 <!-- cifra de cesar -->
                 <label for="crifaDeCesar">
@@ -26,11 +26,11 @@
                 <!-- valor do incremento -->
                 <!-- falta pegar -->
                 <label class="containerIncrementos" for="valorIncrementos">
-                    Digite o numero de incrementos:
+                    <p>Digite o numero de incrementos:</p>
                     <input type="number" name="valorIncrementos" id="valorIncrementos">
                 </label>
             </fieldset>
-            <fieldset id="containerAcao">
+            <fieldset class="containersDeEscolha" id="containerAcao">
                 <p>Diga a ação desejada:</p>
                 <label for="criptografar">
                     <input type="radio" name="cripOuDescrip" id="criptografar">Criptografar
@@ -38,9 +38,13 @@
                 <label for="descriptografar">
                     <input type="radio" name="cripOuDescrip" id="descriptografar">Descriptografar
                 </label>
-                <button id="botaoAcao">Ação a ser tomada</button>
             </fieldset>    
+            <button id="botaoAcao">Ação a ser tomada</button>
         </form>
+        <span id="ondeIraMostraTexto">
+            <h2 id="tituloDaAcao"></h2>
+            <p id="conteudoEditado"></p>
+        </span>
         <script src="./script.js"></script>
     </body>
 </html>

@@ -156,11 +156,17 @@ let manipulandoTexto = {
     },
 
     textoDescriptografado :"",
+    getTextoDescriptografado : function(){
+        return this.textoDescriptografado;
+    },
     setTextoDescriptografado : function(texto){
         this.textoDescriptografado = texto;
     },
     
     textoCriptografado : "",
+    getTextoCriptografado : function() {
+        return this.textoCriptografado;
+    },
     setTextoCriptografado : function(texto){
         this.textoCriptografado = texto;
         
@@ -188,10 +194,17 @@ confirmacaoAcao.addEventListener("click", function(e){
            
         } else if(opcoesForm.getCriptoEscolhida() === "base64"){
             // Chama a função para criptografar em base64 e salva no objeto
-            manipulandoTexto.setTextoCriptografado(criptografandoBase64(manipulandoTexto.pegandoTexto()))
+            manipulandoTexto.setTextoCriptografado(criptografandoBase64(manipulandoTexto.pegandoTexto()));
 
             console.log(manipulandoTexto.textoCriptografado);
         }
+
+        
+        const tituloDaAcao = document.querySelector("#tituloDaAcao");
+        tituloDaAcao.innerText = "Texto criptografado:";
+        const conteudoEditado = document.querySelector("#conteudoEditado");
+        conteudoEditado.innerText = manipulandoTexto.getTextoCriptografado()
+
     } else if(opcoesForm.getAcaoEscolhida() === "descriptografar"){
         if(opcoesForm.getCriptoEscolhida() === "cifra"){
             // Chama a função para descriptografar em cifra e salva no objeto
@@ -203,6 +216,11 @@ confirmacaoAcao.addEventListener("click", function(e){
 
             console.log(manipulandoTexto.textoDescriptografado);
         }
+
+        const tituloDaAcao = document.querySelector("#tituloDaAcao");
+        tituloDaAcao.innerText = "Texto descriptografado:"; 
+        const conteudoEditado = document.querySelector("#conteudoEditado");
+        conteudoEditado.innerText = manipulandoTexto.getTextoDescriptografado()
     }
 });
 
