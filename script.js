@@ -28,6 +28,44 @@ function criptografandoCifraDeCesar(texto, passos){
     return textoCriptografado;
 }
 
+function criptografandoBase64(texto){
+    return btoa(texto);
+    
+}
+
+function descriptografandoCifraDeCesar(texto, passos){
+    var textoDescriptografado; 
+    for(var i = 0; i < texto.length; i++){
+        // checa se é uma letra pelo charCode
+        if((texto[i].charCodeAt() >= 65 && texto[i].charCodeAt() <= 90) || (texto[i].charCodeAt() >= 97 && texto[i].charCodeAt() <= 122)){            
+            if(texto[i].charCodeAt() >= 97){
+                // Checa se é minuscula ou maiuscula
+                if(textoDescriptografado === undefined){
+                    textoDescriptografado = String.fromCharCode((texto[i].charCodeAt() - 97 - passos) % 26 + 97);
+                } else {
+                    textoDescriptografado += String.fromCharCode((texto[i].charCodeAt() - 97 - passos) % 26 + 97);
+                }
+            } else {
+                if(textoDescriptografado === undefined){
+                    textoDescriptografado = String.fromCharCode((texto[i].charCodeAt() - 65 - passos) % 26 + 65);
+                } else {
+                    textoDescriptografado += String.fromCharCode((texto[i].charCodeAt() - 65 - passos) % 26 + 65);
+                }
+            }
+        } else {
+            if(textoDescriptografado === undefined){
+                textoDescriptografado = texto[i];
+            } else {
+                textoDescriptografado += texto[i];
+            }
+        }
+    }
+    return textoDescriptografado;
+}
+
+function descriptografandoBase64(texto){
+    return atob(texto);
+}
 
 // Pega, edita e salva as escolhas do usuário.
 let opcoesForm = {
@@ -109,23 +147,61 @@ acaoDescriptografando.addEventListener("click", function(){
 let manipulandoTexto = {
     pegandoTexto : function(){
         texto = document.querySelector("#texto");
-        return texto.innerText;
+        return texto.value;
+    },
+
+    pegandoIncrementos : function(){
+        incremento = document.querySelector("#valorIncrementos")
+        return parseInt(incremento.value);
+    },
+
+    textoDescriptografado :"",
+    setTextoDescriptografado : function(texto){
+        this.textoDescriptografado = texto;
     },
     
     textoCriptografado : "",
     setTextoCriptografado : function(texto){
         this.textoCriptografado = texto;
+        
     }
 }
+// debugando essa jorça
+// const confirmacaoAcao = document.querySelector("#botaoAcao");
+// confirmacaoAcao.addEventListener("click", function(e){
+//     e.preventDefault()
+//     console.log(typeof manipulandoTexto.pegandoIncrementos());
+// })
 
+// Parte da cifra debugado com sucesso
+// Jah fez funcionar magicamente e é isso fé.
 const confirmacaoAcao = document.querySelector("#botaoAcao");
 confirmacaoAcao.addEventListener("click", function(e){
     e.preventDefault()
     // console.log("uga");
     if(opcoesForm.getAcaoEscolhida() === "criptografar"){
         if(opcoesForm.getCriptoEscolhida() === "cifra"){
-            // irá chamar a função criptografandoCifraDeCesar(texto, passos)
-            
+            // Chama a função para criptografar em cifra e salva no objeto
+            manipulandoTexto.setTextoCriptografado(criptografandoCifraDeCesar(manipulandoTexto.pegandoTexto(), manipulandoTexto.pegandoIncrementos()));
+
+            console.log(manipulandoTexto.textoCriptografado); 
+           
+        } else if(opcoesForm.getCriptoEscolhida() === "base64"){
+            // Chama a função para criptografar em base64 e salva no objeto
+            manipulandoTexto.setTextoCriptografado(criptografandoBase64(manipulandoTexto.pegandoTexto()))
+
+            console.log(manipulandoTexto.textoCriptografado);
+        }
+    } else if(opcoesForm.getAcaoEscolhida() === "descriptografar"){
+        if(opcoesForm.getCriptoEscolhida() === "cifra"){
+            // Chama a função para descriptografar em cifra e salva no objeto
+            manipulandoTexto.setTextoDescriptografado(descriptografandoCifraDeCesar(manipulandoTexto.pegandoTexto(), manipulandoTexto.pegandoIncrementos()));
+            console.log(manipulandoTexto.textoDescriptografado);
+        } else if(opcoesForm.getCriptoEscolhida() === "base64"){
+            // Chama a função para descriptografar em base64 e salva no objeto
+            manipulandoTexto.setTextoDescriptografado(descriptografandoBase64(manipulandoTexto.pegandoTexto()));
+
+            console.log(manipulandoTexto.textoDescriptografado);
         }
     }
 });
@@ -134,7 +210,3 @@ confirmacaoAcao.addEventListener("click", function(e){
 
 
 
-// function criptografandoBase64(texto){
-//     // btoa() codfi
-//     // atob() decodfi
-// }
