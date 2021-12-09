@@ -220,7 +220,7 @@ confirmacaoAcao.addEventListener("click", function(e){
         const tituloDaAcao = document.querySelector("#tituloDaAcao");
         tituloDaAcao.innerText = "Texto descriptografado:"; 
         const conteudoEditado = document.querySelector("#conteudoEditado");
-        conteudoEditado.innerText = manipulandoTexto.getTextoDescriptografado()
+        conteudoEditado.innerText = manipulandoTexto.getTextoDescriptografado();
     }
 });
 
